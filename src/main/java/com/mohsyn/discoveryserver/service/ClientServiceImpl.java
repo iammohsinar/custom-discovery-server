@@ -38,7 +38,13 @@ public class ClientServiceImpl implements ClientService {
   }
 
   @Override
-  public List<RegisterClientRequest> getAllClientServices() {
-    return List.of();
+  public Set<RegisterClientRequest> getAllClientServices() {
+    log.info("============== getting all clients ==============");
+    Set<RegisterClientRequest> registerClientServices = new HashSet<>();
+    for(Map.Entry<String, RegisterClientRequest> service: REGISTERED_CLIENTS.entrySet()) {
+      registerClientServices.add(service.getValue());
+    }
+    log.info("============== Total {} clients registered ==============",registerClientServices.size());
+    return registerClientServices;
   }
 }
