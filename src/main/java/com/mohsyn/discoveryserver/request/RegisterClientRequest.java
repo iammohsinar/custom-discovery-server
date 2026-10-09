@@ -18,7 +18,9 @@ public class RegisterClientRequest {
   private String appName;
   private int port;
   private String remoteAddress;
-
+  private String uniqueName;
   @EqualsAndHashCode.Exclude
   private LocalDateTime checkInTimeStamp;
+  @EqualsAndHashCode.Exclude
+  private LocalDateTime checkOutTimeStamp;
 }
