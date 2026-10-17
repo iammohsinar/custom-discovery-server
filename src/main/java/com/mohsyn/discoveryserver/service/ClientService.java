@@ -9,4 +9,5 @@ public interface ClientService {
   void registerClient(RegisterClientRequest request);
   void receiveHeartBeat(RegisterClientRequest request);
   Set<RegisterClientRequest> getAllClientServices();
+  void removeDeadServices();
 }

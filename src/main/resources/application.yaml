@@ -1,3 +1,6 @@
 spring:
   application:
     name: custom-discovery-server
+
+server:
+  port: 8090

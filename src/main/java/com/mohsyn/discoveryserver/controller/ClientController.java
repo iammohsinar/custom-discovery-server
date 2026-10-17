@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -23,16 +24,13 @@ public class ClientController {
   private final ClientService clientService;
 
   @PostMapping(REGISTER_CLIENT)
-  public ResponseEntity<Void> registerClient(RegisterClientRequest request) {
-
-    log.info("registering service ================= {}",request.getAppName());
-
+  public ResponseEntity<Void> registerClient(@RequestBody RegisterClientRequest request) {
     clientService.registerClient(request);
     return new ResponseEntity<>(HttpStatus.CREATED);
   }
 
   @PostMapping(HEART_BEAT)
-  public ResponseEntity<Void> heartBeat(RegisterClientRequest request) {
+  public ResponseEntity<Void> heartBeat(@RequestBody RegisterClientRequest request) {
 
     clientService.receiveHeartBeat(request);
     return new ResponseEntity<>(HttpStatus.CREATED);
